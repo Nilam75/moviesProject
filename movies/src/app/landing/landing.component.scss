@@ -1,0 +1,44 @@
+.poster-image {
+    width: 400px;
+    height: 500px;
+    object-fit: cover;  // Maintain aspect ratio and cover the container
+    margin-right: 20px; // Adjust margin based on your preference
+  }
+  
+  .details-container {
+    flex-grow: 1; // Allow details to fill the available space
+  }
+  .container{
+    position: relative;
+    float: left;
+    left: 455px;
+    top: -295px
+    
+  }
+  .divContainer{
+    width: 1000px;
+    position: relative;
+    float:left;
+    top: 300px;
+    /* left: -214px; */
+    right: 250px
+   
+  }
+
+.imageOver {
+    position: relative;
+    overflow: hidden;
+    // width: 100px; /* Adjust as needed */
+    // height: 500px; /* Adjust as needed */
+  }
+  
+  .imageOver img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .imageOver:hover img {
+    transform: scale(1.2); /* Adjust the scale factor as needed */
+  }
+  
