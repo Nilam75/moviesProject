@@ -1,26 +1,52 @@
+
+
 .poster-image {
   width: 400px;
   height: 400px;
-  object-fit: cover;  // Maintain aspect ratio and cover the container
-  margin-right: 20px; // Adjust margin based on your preference
+  object-fit: cover;  /* Maintain aspect ratio and cover the container */
+  margin: auto;  /* Center the image horizontally */
+  display: block; /* Ensure the image is displayed as a block element */
 }
 
 .details-container {
-  flex-grow: 1; // Allow details to fill the available space
+  flex-grow: 1; /* Allow details to fill the available space */
 }
-.container{
-  position: relative;
-  float: left;
-  left: 455px;
-  top: -295px
-  
-}
-.divContainer{
+
+.container {
   width: 1000px;
+  margin: auto; /* Center the container horizontally */
   position: relative;
-  float:left;
-  top: 300px;
-  /* left: -214px; */
-  right: 250px
- 
+  top: -10px;
+}
+
+.divContainer {
+  width: 100%; /* Make the container fill the available width */
+  max-width: 1000px; /* Set a maximum width */
+  margin: auto; /* Center the container horizontally */
+  position: relative;
+  top: 100px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card .details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 95, 95, 0.7); /* Adjust background color and opacity */
+  color:lightgreen; /* Text color for details */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card:hover .details {
+  opacity: 1;
+  font-size: 15px;
 }

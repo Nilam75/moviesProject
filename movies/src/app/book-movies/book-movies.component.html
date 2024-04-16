@@ -1,0 +1,21 @@
+
+<button type="button" class="btn btn-success" routerLink="">Back</button>
+
+<!-- Inside the ngFor loop for displaying movies -->
+ 
+<div class="container mx-auto" *ngIf="moviesData && moviesData.length > 0">
+    <div class="row">
+      <div *ngFor="let data of moviesData " class="col-md-4">
+<div class="card mb-4">
+    <img [src]="getPosterUrl(data.poster_path)" class="card-img-top" alt="{{ data.original_title }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ data.original_title }}</h5>
+      <p>Release Date: {{ data.release_date }}</p>
+      <button type="button" class="btn btn-link" (click)="showDetails(data)">Show Details</button>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  

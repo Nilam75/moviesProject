@@ -7,47 +7,45 @@ import { ApiCallService } from '../api-call.service';
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent {
-  moviesData:any=[];
-  findData:any=[];
-  SearchText:any;
+  moviesData: any = [];
+  findData: any = [];
+  SearchText: any;
   getPosterUrl(posterPath: string, width: number = 300, height: number = 300): string {
     const basePosterUrl = 'https://image.tmdb.org/t/p/';
-    const imageSize = `w${width}_and_h${height}_bestv2/`; 
+    const imageSize = `w${width}_and_h${height}_bestv2/`;
     return `${basePosterUrl}${imageSize}${posterPath}`;
   }
-  
-  
-constructor(private apiCallService:ApiCallService){}
+
+
+  constructor(private apiCallService: ApiCallService) { }
 
   ngOnInit() {
-   this.apiCallService.getMoviesData().subscribe(
-    (res: any) => {
-      console.log("movies Data", res);
-
+    this.apiCallService.getMoviesData().subscribe(
+      (res: any) => {
+        console.log("movies Data", res);
         this.moviesData = res.data;
-       
-    
-    },
-   
-  );
-}
+      },
 
-  
+    );
+  }
 
-  getData(){
+
+
+  getData() {
     if (this.moviesData.length > 0) {
-      this.findData= this.moviesData.forEach((element: any) => {
-        
+      this.findData = this.moviesData.forEach((element: any) => {
+
         if (element.casts) {
           console.log("Casts Data for current element:", element.casts);
-        return element.casts
-        } 
-        
-      });
-    
-    
+          return element.casts
+        }
 
-    console.log("find Data", this.findData);
+      });
+
+
+
+      console.log("find Data", this.findData);
+    }
   }
-}
+
 }
