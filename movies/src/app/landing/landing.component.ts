@@ -8,8 +8,9 @@ import { ApiCallService } from '../api-call.service';
 })
 export class LandingComponent {
   moviesData:any=[];
-  findData:any=[]
-  getPosterUrl(posterPath: string, width: number = 400, height: number = 600): string {
+  findData:any=[];
+  SearchText:any;
+  getPosterUrl(posterPath: string, width: number = 300, height: number = 300): string {
     const basePosterUrl = 'https://image.tmdb.org/t/p/';
     const imageSize = `w${width}_and_h${height}_bestv2/`; 
     return `${basePosterUrl}${imageSize}${posterPath}`;
@@ -18,8 +19,8 @@ export class LandingComponent {
   
 constructor(private apiCallService:ApiCallService){}
 
- ngOnInit() {
-  this.apiCallService.getMoviesData().subscribe(
+  ngOnInit() {
+   this.apiCallService.getMoviesData().subscribe(
     (res: any) => {
       console.log("movies Data", res);
 
