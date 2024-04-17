@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiCallService } from '../api-call.service';
+import { Router } from '@angular/router';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-book-movies',
@@ -10,7 +12,8 @@ export class BookMoviesComponent {
   moviesData: any = [];
   selectedMovie: any;
 
-  constructor(private apiCallService: ApiCallService) { }
+  constructor(private apiCallService: ApiCallService,
+              private router:Router) { }
 
   ngOnInit() {
     this.apiCallService.getMoviesData().subscribe(
@@ -29,10 +32,20 @@ export class BookMoviesComponent {
 
   showDetails(movie: any) {
     this.selectedMovie = movie;
+    console.log("selected movies",this.selectedMovie);
+    this.bookMovie(movie)
   
   }
 
   bookMovie(movie: any) {
+    movie=this.selectedMovie
     console.log("Booking movie:", movie);
+    if(movie){
+      this.apiCallService.moviesBookingData.next(movie)
+
+      this.router.navigateByUrl('/Booking')
+    }else{
+      alert("Movies mot Selectet>>>>>>")
+    }
   }
 }
